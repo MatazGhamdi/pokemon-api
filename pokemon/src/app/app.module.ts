@@ -14,12 +14,15 @@ import { ShellComponent } from './shell/shell.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShellComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatListModule, 
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
