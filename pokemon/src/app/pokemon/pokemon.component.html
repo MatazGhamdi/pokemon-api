@@ -1,0 +1,43 @@
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ pokemon?.name | titlecase }}</mat-card-title>
+      <mat-card-subtitle
+        >Type: {{ pokemon?.types[0].type.name | titlecase }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{ sprite }}"
+      alt="Photo of {{ pokemon?.name | titlecase }}"
+    />
+    <mat-card-content>
+      <fieldset style="border-radius: 5px">
+        <legend>Attributes:</legend>
+        <p>
+          Health: {{ pokemon?.stats[0].base_stat
+          }}<span style="margin-right: 50px"></span>Ability:
+          {{ pokemon?.abilities[0].ability.name | titlecase }}
+        </p>
+        <p>
+          Attack: {{ pokemon?.stats[1].base_stat
+          }}<span style="margin-right: 50px"></span>Ability:
+          {{ pokemon?.abilities[1].ability.name | titlecase }}
+        </p>
+        <p>
+          Height: {{ pokemon?.height
+          }}<span style="margin-right: 50px"></span>Held Item:
+          {{ pokemon?.species.name | titlecase }}
+        </p>
+      </fieldset>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button class="pokeBtn" (click)="changeSprite()">
+        {{ spriteBtn }}
+      </button>
+      <button mat-button class="pokeBtn" (click)="makeShiny()">
+        {{ shinyBtn }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

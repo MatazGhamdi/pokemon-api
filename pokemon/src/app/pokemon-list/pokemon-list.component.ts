@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonListService } from './pokemon-list.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PokemonComponent } from '../pokemon/pokemon.component';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -8,9 +10,9 @@ import { PokemonListService } from './pokemon-list.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemonList: any[]=[] ;
+  pokemonList: any[] = [];
 
-  constructor(private pokeListService: PokemonListService) { }
+  constructor(private pokeListService: PokemonListService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -18,13 +20,20 @@ export class PokemonListComponent implements OnInit {
       .subscribe((data: any) => {
         data.results.forEach((result: any) => {
           this.pokeListService.getPokemonDtls(result.name)
-          .subscribe((res: any) => {
-            this.pokemonList.push(res);
-          })
+            .subscribe((res: any) => {
+              this.pokemonList.push(res);
+            })
         });
       });
+  }
 
-      console.log(this.pokemonList);
+  showPokemon(pokemon: any) {
+    this.dialog.open(PokemonComponent, {
+      width: '400px',
+      data: {
+        pokemonName: pokemon
+      },
+    });
   }
 
 }

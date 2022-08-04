@@ -16,6 +16,9 @@ export class ShellComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
+  onClickHome() {
+    alert('This is the homepage :)')
+  }
 }
