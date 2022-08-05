@@ -16,13 +16,16 @@ import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingOverlayComponent } from './common/loading-overlay/loading-overlay.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShellComponent,
     PokemonListComponent,
-    PokemonComponent
+    PokemonComponent,
+    LoadingOverlayComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatListModule, 
     MatCardModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,16 @@
+.overlay {
+    background-color: rgba(0, 0, 0, 0.266);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.center {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);  
+}

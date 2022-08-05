@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CommonService } from '../common/common.service';
 import { PokemonService } from './pokemon.service';
 
 @Component({
@@ -16,16 +17,17 @@ export class PokemonComponent implements OnInit {
   shinyBtn = 'Make Shiny!'
   isShiny!: boolean;
   isBack!: boolean;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private pokemonService: PokemonService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private pokemonService: PokemonService, private commonService: CommonService) { }
 
   ngOnInit(): void {
 
+    this.commonService.showLoadingOverlay();
     this.pokemonService.getPokemonDtls(this.data.pokemonName)
       .subscribe((data: any) => {
         this.pokemon = data;
         this.spriteList = data.sprites;
         this.sprite = data.sprites.front_default;
-        console.log(this.spriteList);
+        this.commonService.hideLoadingOverlay();
       });
 
   }
